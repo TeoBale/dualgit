@@ -1,0 +1,11 @@
+# Build artifacts
+/dist/
+/dualgit
+
+# Go
+go.work
+*.test
+*.out
+
+# OS
+.DS_Store

@@ -1,0 +1,35 @@
+project_name: dualgit
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: dualgit
+    main: ./cmd/dualgit
+    binary: dualgit
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - id: default
+    builds:
+      - dualgit
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format: tar.gz
+    files:
+      - README.md
+      - NEXT_STEPS.md
+
+checksum:
+  name_template: checksums.txt
+
+release:
+  draft: false
+  prerelease: auto
