@@ -36,21 +36,6 @@ eval "$(./dualgit shell-init zsh)"
 ./dualgit init
 ```
 
-## Distribution
-
-This repository includes automated release distribution:
-- `.github/workflows/release.yml`: publishes GitHub Releases on tags like `v0.1.0`.
-- `.goreleaser.yaml`: builds Linux/macOS binaries (`amd64`, `arm64`) and uploads checksums.
-
-Release flow:
-
-```bash
-git tag v0.1.0
-git push origin v0.1.0
-```
-
-After the workflow completes, binaries are available in the GitHub Release page.
-
 ## Security model
 
 - `.gitignore`: excluded from both public and private histories.
